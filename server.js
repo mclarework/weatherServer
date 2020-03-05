@@ -2,7 +2,9 @@
 const express = require("express")
 const {main} = require("./app")
 
+
 const app = express()
+const port = process.env.PORT || 3000
 // app.use(express.static(path.join(__dirname, "./public")))
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -16,4 +18,4 @@ app.get("/weather", async (req,res) => {
     res.send(response)
 })
 
-app.listen(3005, ()=> console.log("listening on port 3005"))
+app.listen(port, ()=> console.log(`server is running on ${port}`))
